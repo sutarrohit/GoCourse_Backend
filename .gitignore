@@ -1,0 +1,36 @@
+# Directories
+node_modules/
+dist/
+build/
+coverage/
+
+# IDE/Editor specific
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*~
+
+# Logs and temp files
+logs/
+*.log
+npm-debug.log*
+
+# Environment variables
+.env
+
+# Compiled output
+*.js
+*.map
+*.d.ts
+
+# Dependency lock files
+package-lock.json
+yarn.lock
+
+# Miscellaneous
+.DS_Store
+Thumbs.db
