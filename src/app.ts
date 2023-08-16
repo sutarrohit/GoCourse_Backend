@@ -26,13 +26,15 @@ declare global {
 dotenv.config();
 const app: Express = express();
 
-app.use(
-  cors({
-    origin: process.env.CLIENT_DOMAIN, // Replace with your actual frontend origin
-    // methods: "GET,POST", // Specify the allowed HTTP methods
-    // allowedHeaders: "Content-Type,Authorization", // Specify the allowed headers
-  })
-);
+// app.use(
+//   cors({
+//     origin: process.env.CLIENT_DOMAIN, // Replace with your actual frontend origin
+//     // methods: "GET,POST", // Specify the allowed HTTP methods
+//     // allowedHeaders: "Content-Type,Authorization", // Specify the allowed headers
+//   })
+// );
+
+app.use(cors());
 
 //----- Middlewares -----
 app.use(express.json({ limit: "100kb" }));
