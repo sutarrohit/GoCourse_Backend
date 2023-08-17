@@ -22,7 +22,7 @@ npm-debug.log*
 .env
 
 # Compiled output
-*.js
+
 *.map
 *.d.ts
 
