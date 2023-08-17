@@ -117,7 +117,7 @@ exports.forgetPassword = (0, catchAsync_1.default)((req, res, next) => __awaiter
         // resetURL = `${req.protocol}://${req.get("host")}/api/v1/users/resetPassword/${resetToken}`;
         resetURL = `${process.env.CLIENT_DOMAIN}/resetPassword/${resetToken}`;
     }
-    const message = `Send a request with your updated password to:\n ${resetURL}.\n If you haven't requested a password reset, please disregard this email.`;
+    const message = `Kindly forward your password update request to the following address: \n ${resetURL}.\n If you haven't requested password reset, please disregard this email.`;
     // Call send mail function
     const mail = yield (0, Gmail_1.sendEmail)({
         email: req.body.email,
@@ -138,8 +138,14 @@ exports.forgetPassword = (0, catchAsync_1.default)((req, res, next) => __awaiter
 // Reset Passowrd
 exports.resetPassowrd = (0, catchAsync_1.default)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     //Get user based on the token
-    const hashedToken = crypto_1.default.createHash("sha256").update(req.params.token).digest("hex");
-    const user = yield userModel_1.User.findOne({ passwordResetToken: hashedToken, passwordResetExpires: { $gt: Date.now() } });
+    const hashedToken = crypto_1.default
+        .createHash("sha256")
+        .update(req.params.token)
+        .digest("hex");
+    const user = yield userModel_1.User.findOne({
+        passwordResetToken: hashedToken,
+        passwordResetExpires: { $gt: Date.now() },
+    });
     //If token has not expired and there is is user, set new password
     if (!user)
         throw new appError_1.default("Token is invalid or expired", 401);
@@ -159,7 +165,10 @@ exports.resetPassowrd = (0, catchAsync_1.default)((req, res, next) => __awaiter(
 }));
 // Signup verification
 exports.userVerification = (0, catchAsync_1.default)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    const hashedToken = crypto_1.default.createHash("sha256").update(req.params.token).digest("hex");
+    const hashedToken = crypto_1.default
+        .createHash("sha256")
+        .update(req.params.token)
+        .digest("hex");
     const user = yield userModel_1.User.findOne({
         signupVerificationToken: hashedToken,
         signupVerificationExpires: { $gt: Date.now() },
@@ -199,7 +208,8 @@ exports.updatePassword = (0, catchAsync_1.default)((req, res, next) => __awaiter
 exports.protect = (0, catchAsync_1.default)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     let token = "";
     // Check Header Data
-    if (req.headers.authorization && req.headers.authorization.startsWith("Bearer")) {
+    if (req.headers.authorization &&
+        req.headers.authorization.startsWith("Bearer")) {
         token = req.headers.authorization.split(" ")[1];
     }
     if (!token)
@@ -208,7 +218,9 @@ exports.protect = (0, catchAsync_1.default)((req, res, next) => __awaiter(void 0
     const secretKey = process.env.JWT_SECRET || "";
     const decoded = yield verifyToken(token, secretKey);
     // Check User Exits In Database or Not
-    const currentUser = yield userModel_1.User.findById(decoded.userId, { passwordChengedAt: 0 });
+    const currentUser = yield userModel_1.User.findById(decoded.userId, {
+        passwordChengedAt: 0,
+    });
     if (!currentUser)
         throw new appError_1.default("The User Belongs To This Token No Longer Exits", 401);
     if (!currentUser.isVerified)

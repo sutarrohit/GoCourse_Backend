@@ -22,7 +22,6 @@ npm-debug.log*
 .env
 
 # Compiled output
-
 *.map
 *.d.ts
 

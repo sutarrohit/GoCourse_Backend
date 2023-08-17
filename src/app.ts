@@ -28,9 +28,13 @@ declare global {
 dotenv.config();
 const app: Express = express();
 
+// Parse the comma-separated list of origins into an array
+const allowedOrigins = process.env.CLIENT_DOMAIN?.split(",");
+console.log(allowedOrigins);
+
 app.use(
   cors({
-    origin: process.env.CLIENT_DOMAIN, // Replace with your actual frontend origin
+    origin: allowedOrigins, // Replace with your actual frontend origin
     // methods: "GET,POST", // Specify the allowed HTTP methods
     // allowedHeaders: "Content-Type,Authorization", // Specify the allowed headers
   })
