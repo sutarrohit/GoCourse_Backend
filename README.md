@@ -41,7 +41,7 @@ To set up and run the GoCourse Backend locally, follow these steps:
     npm install
 
 5. Configure environment variables:
-   Create a .env file based on the provided .env.(example).
+   Create a .env file based on the provided .env.example.
    ```bash
    NODE_ENV = Change NODE_ENV development or production
   
@@ -51,8 +51,8 @@ To set up and run the GoCourse Backend locally, follow these steps:
    JWT_EXPIRES_IN = 7d
    JWT_COOKIES_EXPIRES_IN = 90
 
-   GMAIL_USERNAME =  Gamil Address
-   GMAIL_PASSWORD =  Gamil Application Password
+   GMAIL_USERNAME =  Gmail Address
+   GMAIL_PASSWORD =  Gmail Application Password
 
    STRIP_PUBLISHABLE_KEY=  
    STRIP_SCERET_KEY= 
