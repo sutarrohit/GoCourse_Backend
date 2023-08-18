@@ -7,8 +7,6 @@ Welcome to the GoCourse Backend repository! This repository contains the backend
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Getting Started](#getting-started)
-- [Configuration](#configuration)
-- [API Documentation](#api-documentation)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -65,9 +63,9 @@ To set up and run the GoCourse Backend locally, follow these steps:
     ```bash
    npm run dev
 
-7. Contributing:
+ ## Contributing:
 - If you would like to contribute to the project, please fork the repository and submit a pull request with your changes
 
-8. License:
+## License:
 - This project is licensed under the MIT License.    
 
