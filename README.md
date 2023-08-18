@@ -33,7 +33,7 @@ To set up and run the GoCourse Backend locally, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/GoCourse-Backend.git
+   git clone https://github.com/sutarrohit/GoCourse_Backend.git
 
 3. Install dependencies:
    
