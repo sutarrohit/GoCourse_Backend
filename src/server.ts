@@ -15,8 +15,6 @@ mongoose.connect(MONGODB_URI, {}).then((con: Mongoose) => {
   console.log("Database Connected Successfully");
 });
 
-console.log("Environment: ", process.env.NODE_ENV);
-
 app.listen(process.env.PORT || 3000, () => {
   console.log("Server start on the port", process.env.PORT);
 });

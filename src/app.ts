@@ -24,8 +24,6 @@ declare global {
     }
   }
 }
-
-dotenv.config();
 const app: Express = express();
 
 // Parse the comma-separated list of origins into an array
